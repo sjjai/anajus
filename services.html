@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Services - ANAJUS Cabs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --primary-color: #d4af37;
+            --secondary-color: #333;
+            --text-color: #444;
+            --light-color: #f8f9fa;
+            --dark-color: #212529;
+            --accent-color: #007bff;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Reset and box-sizing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            background-color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Headings */
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            color: var(--secondary-color);
+        }
+
+        /* Links */
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        a:hover {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Sections */
+        section {
+            padding: 40px 0;
+        }
+
+        /* Section titles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+            position: relative;
+        }
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 15px auto;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            box-shadow: var(--box-shadow);
+            min-width: 120px;
+        }
+        .btn:hover {
+            background: #c9a227;
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header styles */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), #000);
+            padding: 15px 0;
+            color: white;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--box-shadow);
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .logo {
+            display: flex;
+            flex-direction: column;
+            z-index: 1001;
+        }
+        .logo h1 {
+            margin: 0;
+            font-size: clamp(20px, 4vw, 28px);
+            color: var(--primary-color);
+            font-family: 'Playfair Display', serif;
+            letter-spacing: 1px;
+        }
+        .logo h5 {
+            margin: 5px 0 0;
+            font-size: clamp(10px, 2.5vw, 14px);
+            color: white;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: flex-end;
+            background: transparent;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+
+        nav a {
+            margin: 0 15px;
+            font-size: 1rem;
+            color: white;
+            font-weight: 500;
+            position: relative;
+        }
+
+        nav a:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            bottom: -5px;
+            left: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        nav a:hover:after {
+            width: 100%;
+        }
+
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 1001;
+        }
+
+        .menu-toggle span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: var(--primary-color);
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        /* Hero section */
+        .hero {
+            height: auto;
+            min-height: 50vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            color: white;
+            margin-top: 0;
+            padding-top: 80px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        }
+        .hero-content {
+            max-width: 800px;
+            color: var(--light-color);
+            margin: 0 auto;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        .hero h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 20px;
+            color: white;
+            animation: fadeInDown 1s ease;
+        }
+        .hero p {
+            font-size: clamp(1rem, 3vw, 1.2rem);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Services Grid */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+        .service-card {
+            background: var(--light-color);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        /* Tables */
+        .table-responsive {
+            overflow-x: auto;
+            margin: 20px 0;
+            -webkit-overflow-scrolling: touch;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--light-color);
+            margin-top: 10px;
+            min-width: 600px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 12px 8px;
+            text-align: center;
+        }
+        td {
+            padding: 10px 8px;
+            text-align: center;
+            color: var(--dark-color);
+        }
+        caption {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+            text-align: left;
+        }
+
+        /* Text elements */
+        .small, .mini {
+            display: block;
+            margin: 10px 0;
+            font-size: 0.9rem;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .container {
+                width: 95%;
+            }
+            
+            section {
+                padding: 30px 0;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                background: var(--secondary-color);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                transition: right 0.3s ease;
+            }
+            
+            nav.active {
+                right: 0;
+            }
+            
+            nav a {
+                margin: 15px 0;
+                font-size: 1.2rem;
+            }
+            
+            .hero {
+                min-height: 40vh;
+            }
+            
+            .hero-content {
+                margin-top: 20px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .logo h1 {
+                font-size: 22px;
+            }
+            
+            .logo h5 {
+                font-size: 12px;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            section {
+                padding: 20px 0;
+            }
+            
+            .section-title {
+                margin-bottom: 20px;
+            }
+            
+            .service-card {
+                padding: 20px 15px;
+            }
+            
+            footer {
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>ANAJUS</h1>
+                <h5>Just An Inspiration</h5>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="booking.html">Booking</a>
+                <a href="about.html">About</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Our Services</h2>
+            <p>Tailored transportation solutions for every need</p>
+        </div>
+    </section>
+
+    <!-- What We Offer -->
+    <section class="container">
+        <div class="section-title">
+            <h2>What We Offer</h2>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1 -->
+            <div class="service-card">
+                <div class="service-icon">🚗</div>
+                <h3>City Rides</h3>
+                <p>Point-to-point transportation within the city with professional drivers.</p>
+                <a href="booking.html" class="btn">Book Now</a>
+            </div>
+            <!-- Service 2 -->
+            <div class="service-card">
+                <div class="service-icon">✈️</div>
+                <h3>Airport Transfers</h3>
+                <p>Timely pickups and drop-offs with flight tracking.</p>
+                <a href="booking.html" class="btn">Book Now</a>
+            </div>
+            <!-- Service 3 -->
+            <div class="service-card">
+                <div class="service-icon">⏱️</div>
+                <h3>Hourly Rental</h3>
+                <p>Flexible chauffeur-driven service by the hour.</p>
+                <a href="booking.html" class="btn">Book Now</a>
+            </div>
+        </div>
+
+        <!-- Tariff Tables -->
+        <div style="margin-top: 60px;">
+            <div class="section-title">
+                <h2>Our Tariff</h2>
+            </div>
+            <h3>One-way Trips and Round Trips</h3>
+            <p class="small">
+                ANAJUS Cabs offers convenient one-way and round-trip services across Tamil Nadu, Puducherry, Kerala, Karnataka, and Andhra Pradesh. For drop trips, we ensure cost-effective travel by charging only for one way, eliminating unnecessary two-way fare.
+            </p>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Vehicle</th>
+                        <th>One-way Trip <br>Rate / Km</th>
+                        <th>Round Trip <br>Rate / km</th>
+                    </tr>
+                    <tr>
+                        <td>Sedan</td>
+                        <td>₹14</td>
+                        <td>₹13</td>
+                    </tr>
+                    <tr>
+                        <td>MUV</td>
+                        <td>₹18</td>
+                        <td>₹17</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="mini"><b>One-Way Trips - </b> A minimum travel distance of 100 km is required.</p>
+            <p class="mini"><b>One-Way Trips - </b> Driver allowance: ₹400 (₹600 for trips exceeding 400 km). Waiting charges: ₹150 per hour.</p>
+            <p class="mini"><b>Round Trips - </b> A minimum travel distance of 250 km per day is required.</p>
+            <p class="mini"><b>Round Trips - </b> Driver allowance: ₹500 per day (up to 12 hours).</p>
+            <p class="mini"><b>Round Trips - </b> For distances exceeding 500 km in a single day, the driver allowance is ₹600 per day.</p>
+            <p class="mini"><b>One-way and Round Trip - </b> Only two pickup and drop points are permitted. Additional points will incur extra charges.</p>
+            <p class="small"><b>luggage charges - </b> Rs.300 <br> Additional luggage charges, if applicable, will be determined at the driver's discretion.<br> Taxis are for passenger use only.<br> [SEDAN - accommodates up to 3 suitcases, each 10kg. Extra charges for excess luggage.<br> [MUV - accommodates up to 6 suitcases, each 10kg. Extra for excess luggage.</p>
+            <p><b>Hill station charges - </b>Rs.300</p>
+            <p class="small"><b>Cancellation charges - </b> Cancel up to 24 hours before without charges. If the taxi has reached at cancellation, ₹200 payable to driver.</p>
+            <p class="small"><b>Note: </b> Pets allowed only in carriers; ₹400 cleaning fee. Toll/inter-state permit charges extra.</p>
+
+            <!-- Outstation Packages -->
+            <h3>Outstation Packages</h3>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Package</th>
+                        <th>Sedan</th>
+                        <th>MUV</th>
+                    </tr>
+                    <tr>
+                        <td><b>Half Day</b><br>(6 Hrs & 90 Kms)</td>
+                        <td>₹2,050</td>
+                        <td>₹2,950</td>
+                    </tr>
+                    <tr>
+                        <td><b>Full Day</b><br>(10 Hrs & 180 Kms)</td>
+                        <td>₹3,050</td>
+                        <td>₹3,900</td>
+                    </tr>
+                    <tr>
+                        <td><b>Additional Hours</b></td>
+                        <td>₹150 / hr</td>
+                        <td>₹150 / hr</td>
+                    </tr>
+                    <tr>
+                        <td><b>Additional kms</b></td>
+                        <td>₹14 / km</td>
+                        <td>₹18 / km</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="small"><b>Toll fees, Permit charges extra.</b></p>
+
+            <!-- Local Packages -->
+            <h3>Local Packages</h3>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Package</th>
+                        <th>Sedan</th>
+                        <th>MUV</th>
+                    </tr>
+                    <tr>
+                        <td>2Hrs / 20Kms</td>
+                        <td>₹900</td>
+                        <td>₹1,200</td>
+                    </tr>
+                    <tr>
+                        <td>3Hrs / 30Kms</td>
+                        <td>₹1,100</td>
+                        <td>₹1,550</td>
+                    </tr>
+                    <tr>
+                        <td>4Hrs / 40Kms</td>
+                        <td>₹1,300</td>
+                        <td>₹1,850</td>
+                    </tr>
+                    <tr>
+                        <td>5Hrs / 50Kms</td>
+                        <td>₹1,500</td>
+                        <td>₹2,100</td>
+                    </tr>
+                    <tr>
+                        <td>6Hrs / 60Kms</td>
+                        <td>₹1,700</td>
+                        <td>₹2,350</td>
+                    </tr>
+                    <tr>
+                        <td>7Hrs / 70Kms</td>
+                        <td>₹1,950</td>
+                        <td>₹2,700</td>
+                    </tr>
+                    <tr>
+                        <td>8Hrs / 80Kms</td>
+                        <td>₹2,150</td>
+                        <td>₹2,950</td>
+                    </tr>
+                    <tr>
+                        <td>9Hrs / 90Kms</td>
+                        <td>₹2,350</td>
+                        <td>₹3,200</td>
+                    </tr>
+                    <tr>
+                        <td>10Hrs / 100Kms</td>
+                        <td>₹2,600</td>
+                        <td>₹3,550</td>
+                    </tr>
+                    <tr>
+                        <td>11Hrs / 110Kms</td>
+                        <td>₹2,800</td>
+                        <td>₹3,800</td>
+                    </tr>
+                    <tr>
+                        <td>12Hrs / 120Kms</td>
+                        <td>₹3,000</td>
+                        <td>₹4,050</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Hours</td>
+                        <td>₹200</td>
+                        <td>₹250</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Kms</td>
+                        <td>₹20</td>
+                        <td>₹25</td>
+                    </tr>
+                </table>
+            </div>
+            <p class="small"><b>Toll fees, Permit charges extra.</b></p>
+
+            <!-- Acting Drivers Tariff -->
+            <h3>Acting Drivers Tariff :</h3>
+            <h4>Local Tariff</h4>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Shift</th>
+                        <th>Sedan</th>
+                        <th>MUV</th>
+                    </tr>
+                    <tr>
+                        <td>4 Hours</td>
+                        <td>₹500</td>
+                        <td>₹500</td>
+                    </tr>
+                    <tr>
+                        <td>Additional Hours</td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                    <tr>
+                        <td><b>Night charges</b><br>(10 PM to 6 AM)</td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                    <tr>
+                        <td><b>Out of City</b><br>(More than 40 Kms)</td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                    <tr>
+                        <td><b>Drop charges</b><br>(In city)</td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                    <tr>
+                        <td><b>Cancel charges</b></td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Outstation Tariff -->
+            <h3>Outstation Tariff</h3>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Shift</th>
+                        <th>Normal Cars</th>
+                        <th>Luxury Cars</th>
+                    </tr>
+                    <tr>
+                        <td>12 Hours</td>
+                        <td>₹1500</td>
+                        <td>₹1600</td>
+                    </tr>
+                    <tr>
+                        <td><b>Additional Hours</b><br>(Only for 12 hours)</br></td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                    <tr>
+                        <td>Extra</td>
+                        <td>Food + Accommodation</td>
+                        <td>Food + Accommodation</td>
+                    </tr>
+                    <tr>
+                        <td><b>Night charges</b><br>(Only for 12 hours)</td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                    <tr>
+                        <td><b>Extra kms</b><br>(Exceeds 450 kms)<br></td>
+                        <td>₹2000</td>
+                        <td>₹2000</td>
+                    </tr>
+                    <tr>
+                        <td><b>Drop charges</b><br>(Outstation drop)</td>
+                        <td>₹1500 + bus/train fare</td>
+                        <td>₹1500 + bus/train fare</td>
+                    </tr>
+                    <tr>
+                        <td><b>Drop charges</b><br>(Exceeds 450 kms)</br></td>
+                        <td>₹2000 + bus/train fare</td>
+                        <td>₹2000 + bus/train fare</td></tr>
+                    <tr>
+                        <td>Cancel charges</td>
+                        <td>₹100</td>
+                        <td>₹100</td>
+                    </tr>
+                </table>
+            </div>
+
+            <!-- Car Trainer Tariff -->
+            <h3>Car Trainer Tariff</h3>
+            <div class="table-responsive">
+                <table>
+                    <tr>
+                        <th>Training Package</th>
+                        <th>Cost</th>
+                    </tr>
+                    <tr>
+                        <td>1 Hour</td>
+                        <td>₹300</td>
+                    </tr>
+                    <tr>
+                        <td>3 Hours</td>
+                        <td>₹900</td>
+                    </tr>
+                    <tr>
+                        <td>10 Days (2 hr/day)</td>
+                        <td>₹6,000</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 ANAJUS Cabs. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle functionality
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            this.classList.toggle('active');
+            document.querySelector('nav').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.menu-toggle').classList.remove('active');
+                document.querySelector('nav').classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>

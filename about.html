@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ANAJUS Cabs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+    :root {
+        --primary-color: #d4af37;
+        --secondary-color: #333;
+        --text-color: #444;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --accent-color: #007bff;
+        --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-color);
+        line-height: 1.7;
+        background-color: #ffffff;
+        overflow-x: hidden;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        color: var(--secondary-color);
+    }
+
+    a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    a:hover {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 20px;
+    }
+
+    section {
+        padding: 40px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 30px;
+        position: relative;
+    }
+
+    .section-title:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 15px auto;
+    }
+
+    .btn {
+        display: inline-block;
+        background: var(--primary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 4px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--box-shadow);
+    }
+
+    .btn:hover {
+        background: #c9a227;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styles */
+    header {
+        background: linear-gradient(135deg, var(--secondary-color), #000);
+        padding: 15px 0;
+        color: white;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--box-shadow);
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .logo h1 {
+        margin: 0;
+        font-size: 28px;
+        color: var(--primary-color);
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 1px;
+    }
+
+    .logo h5 {
+        margin: 5px 0 0;
+        font-size: 14px;
+        color: white;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+
+    /* Navigation */
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        background: transparent;
+        padding: 0;
+    }
+
+    nav a {
+        margin: 0 15px;
+        font-size: 1rem;
+        color: white;
+        font-weight: 500;
+        position: relative;
+    }
+
+    nav a:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--primary-color);
+    }
+
+    nav a:hover:after {
+        width: 100%;
+    }
+
+    /* Mobile Menu Button */
+    .menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        min-height: 50vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        margin-top: 80px;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .hero h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        margin-bottom: 20px;
+        color: white;
+        animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+        font-size: clamp(1rem, 2.5vw, 1.2rem);
+        margin-bottom: 30px;
+        animation: fadeInUp 1s ease;
+    }
+
+    /* About Content */
+    .about-content {
+        padding: 60px 0;
+    }
+
+    .about-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .feature-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin-top: 40px;
+    }
+
+    .feature-box {
+        padding: 30px;
+        background: var(--light-color);
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    .feature-box h4 {
+        color: var(--primary-color);
+        margin-bottom: 15px;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--secondary-color);
+        color: white;
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 60px;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Styles */
+    @media only screen and (min-width: 768px) {
+        .about-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .header-container {
+            padding: 0 20px;
+        }
+
+        nav {
+            display: none;
+            position: absolute;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        nav.active {
+            display: flex;
+        }
+
+        nav a {
+            margin: 10px 0;
+            padding: 10px;
+        }
+
+        .menu-btn {
+            display: block;
+        }
+
+        .hero {
+            min-height: 40vh;
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .logo h1 {
+            font-size: 24px;
+        }
+
+        .logo h5 {
+            font-size: 12px;
+        }
+
+        .hero h2 {
+            font-size: 1.8rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>ANAJUS</h1>
+                <h5>Just An Inspiration</h5>
+            </div>
+            <button class="menu-btn" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="booking.html">Booking</a>
+                <a href="about.html">About</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- About Hero -->
+    <section class="hero" style="background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1502877338535-766e1452684a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80')">
+        <div class="hero-content">
+            <h2>Our Story</h2>
+            <p>Discover the passion behind ANAJUS Cabs</p>
+        </div>
+    </section>
+
+    <!-- About Content -->
+    <section class="about-content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Who We Are</h2>
+            </div>
+            
+            <div class="about-grid">
+                <div>
+                    <h3 style="margin-bottom: 20px; color: var(--primary-color);">Premium Transportation Since 2024</h3>
+                    <p style="margin-bottom: 20px;">ANAJUS Cabs was founded with a simple mission: to redefine luxury transportation in our city. We combine cutting-edge vehicles with old-fashioned hospitality.</p>
+                    <p>Our team of professional drivers undergoes rigorous training to ensure your safety and comfort. We're not just a cab service - we're your travel partners.</p>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Our Team" style="width: 100%; border-radius: 10px; box-shadow: var(--box-shadow);">
+                </div>
+            </div>
+
+            <div style="margin-top: 60px; text-align: center;">
+                <h3 style="margin-bottom: 30px;">Why Choose Us</h3>
+                <div class="feature-grid">
+                    <div class="feature-box">
+                        <h4>24/7 Availability</h4>
+                        <p>We're always ready when you need us, day or night.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>Luxury Fleet</h4>
+                        <p>From sedans to SUVs, all vehicles are premium class.</p>
+                    </div>
+                    <div class="feature-box">
+                        <h4>Safety First</h4>
+                        <p>Regular vehicle maintenance and certified drivers.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ANAJUS Cabs. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        menuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>

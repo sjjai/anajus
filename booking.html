@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ANAJUS Cabs</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+    :root {
+        --primary-color: #d4af37;
+        --secondary-color: #333;
+        --text-color: #444;
+        --light-color: #f8f9fa;
+        --dark-color: #212529;
+        --accent-color: #007bff;
+        --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Base Styles */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-color);
+        line-height: 1.7;
+        background-color: #ffffff;
+        overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        color: var(--secondary-color);
+    }
+
+    a {
+        color: var(--accent-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    a:hover {
+        color: var(--primary-color);
+        text-decoration: none;
+    }
+
+    .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .section-title:after {
+        content: '';
+        display: block;
+        width: 80px;
+        height: 3px;
+        background: var(--primary-color);
+        margin: 15px auto;
+    }
+    
+    .btn {
+        display: inline-block;
+        background: var(--primary-color);
+        color: white;
+        padding: 12px 30px;
+        border-radius: 4px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: all 0.3s ease;
+        border: none;
+        cursor: pointer;
+        box-shadow: var(--box-shadow);
+    }
+
+    .btn:hover {
+        background: #c9a227;
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Header Styles */
+    header {
+        background: linear-gradient(135deg, var(--secondary-color), #000);
+        padding: 15px 0;
+        color: white;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--box-shadow);
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .logo {
+        display: flex;
+        flex-direction: column;
+        padding: 0 15px;
+    }
+
+    .logo h1 {
+        margin: 0;
+        font-size: 28px;
+        color: var(--primary-color);
+        font-family: 'Playfair Display', serif;
+        letter-spacing: 1px;
+    }
+
+    .logo h5 {
+        margin: 5px 0 0;
+        font-size: 14px;
+        color: white;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+
+    /* Navigation */
+    nav {
+        display: flex;
+        justify-content: flex-end;
+        background: transparent;
+        padding: 0;
+    }
+
+    nav a {
+        margin: 0 15px;
+        font-size: 1rem;
+        color: white;
+        font-weight: 500;
+        position: relative;
+        white-space: nowrap;
+    }
+
+    nav a:after {
+        content: '';
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: var(--primary-color);
+        bottom: -5px;
+        left: 0;
+        transition: width 0.3s ease;
+    }
+
+    nav a:hover {
+        color: var(--primary-color);
+    }
+
+    nav a:hover:after {
+        width: 100%;
+    }
+
+    /* Mobile Menu Toggle */
+    .menu-toggle {
+        display: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+
+    .menu-toggle span {
+        display: block;
+        width: 25px;
+        height: 3px;
+        background: white;
+        margin: 5px 0;
+        transition: all 0.3s ease;
+    }
+
+    /* Hero Section */
+    .hero {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1483729558449-99ef09a8c325?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        height: 60vh;
+        min-height: 400px;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        color: white;
+        margin-top: 70px;
+        padding: 20px;
+    }
+
+    .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .hero h2 {
+        font-size: 3rem;
+        margin-bottom: 20px;
+        color: white;
+        animation: fadeInDown 1s ease;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 30px;
+        animation: fadeInUp 1s ease;
+    }
+
+    /* Booking Form */
+    .booking-form {
+        background: var(--light-color);
+        padding: 40px;
+        border-radius: 10px;
+        box-shadow: var(--box-shadow);
+        margin: 0 auto;
+        max-width: 800px;
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    .form-row {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+    /* Footer */
+    footer {
+        background: var(--secondary-color);
+        color: white;
+        text-align: center;
+        padding: 30px 0;
+        margin-top: 60px;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+        from {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Responsive Styles */
+    @media only screen and (max-width: 992px) {
+        .hero h2 {
+            font-size: 2.5rem;
+        }
+        
+        .form-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    @media only screen and (max-width: 768px) {
+        .menu-toggle {
+            display: block;
+        }
+        
+        nav {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        nav.active {
+            display: flex;
+        }
+        
+        nav a {
+            margin: 10px 0;
+            padding: 10px;
+        }
+        
+        .hero {
+            height: 50vh;
+            margin-top: 60px;
+        }
+        
+        .hero h2 {
+            font-size: 2rem;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+        }
+        
+        .booking-form {
+            padding: 30px 20px;
+        }
+        
+        section {
+            padding: 40px 0;
+        }
+    }
+
+    @media only screen and (max-width: 576px) {
+        .logo h1 {
+            font-size: 24px;
+        }
+        
+        .logo h5 {
+            font-size: 12px;
+        }
+        
+        .hero {
+            height: 40vh;
+            min-height: 300px;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+        }
+        
+        .section-title {
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+        }
+    }
+</style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <h1>ANAJUS</h1>
+                <h5>Just An Inspiration</h5>
+            </div>
+            
+            <div class="menu-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <nav id="main-nav">
+                <a href="index.html">Home</a>
+                <a href="services.html">Services</a>
+                <a href="booking.html">Booking</a>
+                <a href="about.html">About</a>
+                <a href="contacts.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Booking Hero -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Book Your Ride</h2>
+            <p>Fast, easy, and reliable booking</p>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <section class="container">
+        <div class="section-title">
+            <h2>Reservation Form</h2>
+        </div>
+        <form class="booking-form" action="https://formsubmit.co/anajus7179@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="🚖 New Cab Booking!">
+        <input type="hidden" name="_template" value="box">
+        <!-- Anti-spam & Configuration -->
+         <input type="hidden" name="_captcha" value="false">
+         <input type="text" name="_honey" style="display:none">
+
+         <input type="hidden" name="_autoresponse" value="Thank you for booking with ANAJUS Cabs! We'll contact you shortly.">
+        
+            <div class="form-group">
+                <label for="pickup">Pickup Location</label>
+                <input type="text" id="pickup" name="pickup" placeholder="Enter pickup address" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="destination">Destination</label>
+                <input type="text" id="destination" name="destination" placeholder="Enter destination address" required>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="date">Pickup Date</label>
+                    <input type="date" id="date" name="date" required>
+                </div>
+                <div class="form-group">
+                    <label for="time">Pickup Time</label>
+                    <input type="time" id="time" name="time" required>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="vehicle">Vehicle Type</label>
+                <select id="vehicle" name="vehicle" required>
+                    <option value="">Select Vehicle</option>
+                    <option value="sedan">Standard Sedan</option>
+                    <option value="suv">Standard SUV</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="10-digit Indian number" required>
+                <!--<input type="tel" id="phone" name="customer_phone" placeholder="Your phone number" required>-->
+            </div>
+            
+            <button type="submit" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem;">Confirm Booking</button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <p>Need immediate assistance? Call us at <a href="tel:+917397264643" style="color: var(--primary-color); font-weight: 600;">+91 73972 64643</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 ANAJUS Cabs. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const nav = document.querySelector('#main-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            
+            // Animate hamburger icon
+            menuToggle.classList.toggle('active');
+        });
+        
+        // Close menu when clicking on a link
+        const navLinks = document.querySelectorAll('#main-nav a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('active');
+                menuToggle.classList.remove('active');
+            });
+        });
+        //for user know if the submission worked.
+        document.querySelector(".booking-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            const autoresponse = e.target.querySelector('[name="_autoresponse"]').value;
+            const formData = new FormData(e.target);
+            fetch(e.target.action, { method: "POST", body: new FormData(e.target) })
+            .then(() => {alert(autoresponse); 
+                            window.location.href = "thankyou.html"; })
+            .catch(() => alert("Failed to send. Please call +91 73972 64643"));
+        });
+
+        document.getElementById("date").min = new Date().toISOString().split("T")[0];
+    </script>
+</body>
+</html>
