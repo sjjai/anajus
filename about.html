@@ -117,29 +117,36 @@
     }
 
     .logo {
-        display: flex;
-        flex-direction: column;
-    }
+    display: flex;
+    align-items: center;
+    gap: 10px; /* space between image and text */
+}
 
-    .logo h1 {
-        margin: 0;
-        font-size: 28px;
-        color: var(--primary-color);
-        font-family: 'Playfair Display', serif;
-        letter-spacing: 1px;
-    }
+.logo-img {
+    height: 60px; /* adjust size as needed */
+    width: auto;
+    border-radius: 8px; /* optional: makes corners rounded */
+}
 
-    .logo h5 {
-        margin: 5px 0 0;
-        font-size: 14px;
-        color: white;
-        font-weight: 300;
-        letter-spacing: 2px;
-    }
+.logo-text h1 {
+    margin: 0;
+    font-size: 28px;
+    color: var(--primary-color);
+    font-family: 'Playfair Display', serif;
+}
+
+.logo-text h5 {
+    margin: 2px 0;
+    font-size: 14px;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
 
     /* Navigation */
     nav {
         display: flex;
+        width: 60%;
         justify-content: flex-end;
         background: transparent;
         padding: 0;
@@ -355,8 +362,11 @@
     <header>
         <div class="container header-container">
             <div class="logo">
+                <img src="logo_bg.png" alt="ANAJUS Logo" class="logo-img">
+            <div class="logo-text">
                 <h1>ANAJUS</h1>
                 <h5>Just An Inspiration</h5>
+            </div>
             </div>
             <button class="menu-btn" id="menuBtn">
                 <i class="fas fa-bars"></i>
